@@ -71,7 +71,7 @@ def main():
             if st.checkbox("Display quantity of products IW without duplicated data, according to Retail_Product_SKU"):
                 st.write(df_expected["Retail_Product_SKU"].nunique())
 
-            if st.checkbox("Display quantity of NULL values according to columns", key = "uniquecalueofsomesort"):
+            if st.checkbox("Display quantity of NULL values according to columns", key = "uniquevalueofsomesort"):
                 st.write(df_expected.isnull().sum())  
 
             if st.checkbox("Display all IW columns"):
@@ -87,7 +87,7 @@ def main():
                 st.dataframe(df_expected.head(12)) 
                 st.write(df_expected.shape) 
         
-            if st.checkbox("Display integration between SOH and IW", key = "uniquecalueofsomesort"):
+            if st.checkbox("Display integration between SOH and IW"):
                 st.subheader("DISCREPANCY SOH & IW")
                 my_columns_selected = ["Retail_Product_Color", "Retail_Product_Level1", "Retail_Product_Level1Name", "Retail_Product_Level2Name", "Retail_Product_Level3Name",
                 "Retail_Product_Level4Name", "Retail_Product_Name", "Retail_Product_SKU", "Retail_Product_Size", "Retail_Product_Style", "Retail_SOHQTY"]
@@ -107,7 +107,7 @@ def main():
                 st.dataframe(df_discrepancy.head(60)) 
             
 
-            if st.checkbox("Display products of retail level 1", key = "uniquecalueofsomesort"):
+            if st.checkbox("Display products of retail level 1"):
                 st.subheader("DISCREPANCY IN PRODUCT TYPE 1")
                 my_columns_selected = ["Retail_Product_Color", "Retail_Product_Level1", "Retail_Product_Level1Name", "Retail_Product_Level2Name", "Retail_Product_Level3Name",
                 "Retail_Product_Level4Name", "Retail_Product_Name", "Retail_Product_SKU", "Retail_Product_Size", "Retail_Product_Style", "Retail_SOHQTY"]
