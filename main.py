@@ -25,7 +25,7 @@ def main():
     if option=="SOH & IW":
 
         st.subheader("STOCK ON HAND")
-        data_counted=st.file_uploader("Upload Dataset:", type=["csv", "txt", "xlsx"])
+        data_counted=st.file_uploader("Upload Dataset Stock On Hand (Counted_Data):", type=["csv", "txt", "xlsx"])
         st.success("Dataset Successfully Loaded")
         
         if data_counted is not None:
@@ -59,7 +59,7 @@ def main():
         
     
         st.subheader("INVENTORY_WAREHOUSE")
-        data_expected=st.file_uploader("Upload Dataset:", type=["csv", "txt", "xlsx"], key = "uniquecalueofsomesort")
+        data_expected=st.file_uploader("Upload Dataset Inventory Wirehouse (Expected_Data):", type=["csv", "txt", "xlsx"], key = "uniquecalueofsomesort")
         st.success("Dataset Successfully Loaded")
         if data_expected is not None:
             df_expected=pd.read_csv(data_expected, encoding="ISO-8859-1")
