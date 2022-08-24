@@ -4,9 +4,11 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import seaborn as sns
-
-st.set_page_config(page_title="Inventory_Discrepancy", page_icon=":mag:", layout="wide")
-
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+#st.set_page_config(page_title="Inventory_Discrepancy", page_icon=":mag:", layout="wide")
+st.set_option('deprecation.showPyplotGlobalUse', False)
 # ------ HEADER SECTION ------
 left_column, right_column = st.columns(2)
 
