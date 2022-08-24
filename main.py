@@ -1,5 +1,5 @@
 from ast import Nonlocal
-from msilib.schema import CheckBox
+#from msilib.schema import CheckBox
 import streamlit as st
 from PIL import Image
 import pandas as pd
