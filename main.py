@@ -1,7 +1,10 @@
 from ast import Nonlocal
+from msilib.schema import CheckBox
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import seaborn as sns
+
 st.set_page_config(page_title="Inventory_Discrepancy", page_icon=":mag:", layout="wide")
 
 # ------ HEADER SECTION ------
@@ -131,11 +134,21 @@ def main():
 
 
 
-    if option=="Graphics":
+    elif option=="Graphics":
         st.subheader("Discrepancy in Graphics")
-
-
-    if option=="Analysis":
+        data_counted=st.file_uploader("Upload Dataset Stock On Hand (Counted_Data):", type=["csv", "txt", "xlsx"])
+        st.success("Dataset Successfully Loaded")
+        if data_counted is not None:
+            df_counted=pd.read_csv(data_counted, encoding="ISO-8859-1")
+            st.dataframe(df_counted.head(60))
+            if st.checkbox("Select Multiple Columns to plot"):
+                selected_columns=st.multiselect("Select your columns", df_counted.columns)
+                df_counted1=df_counted[selected_columns]
+                st.dataframe(df_counted1)
+            if st.checkbox("Display heatmap"):
+                st.write(sns.heatmap(df_counted.corr(),vmax=1, square=True, annot=True, cmap="viridis")) 
+                st.pyplot()
+    elif option=="Analysis":
         st.subheader("Conclusion about the currency discrepancy")
 
 
